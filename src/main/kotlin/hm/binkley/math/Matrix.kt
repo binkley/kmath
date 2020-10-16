@@ -1,7 +1,8 @@
 package hm.binkley.math
 
 class Matrix {
-    fun doNothing() {
-        if (true) return
+    fun doNothing(useless: Boolean) {
+        if (useless) return
+        else throw UnsupportedOperationException()
     }
 }
