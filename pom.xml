@@ -33,16 +33,16 @@
 
     <properties>
         <!-- @formatter:off -->
-        <assertj.version>3.18.1</assertj.version>
         <buildplan-maven-plugin.version>1.4</buildplan-maven-plugin.version>
         <dependency-check-maven.version>6.0.2</dependency-check-maven.version>
         <detekt-maven-plugin.version>1.11.0</detekt-maven-plugin.version>
         <findsecbugs-plugin.version>1.10.1</findsecbugs-plugin.version>
         <jacoco-maven-plugin.version>0.8.6</jacoco-maven-plugin.version>
         <java.charset>UTF-8</java.charset>
-        <java.version>11</java.version>
+        <jdk.version>11</jdk.version>
         <junit.version>5.7.0</junit.version>
-        <kotlin.compiler.jvmTarget>${java.version}</kotlin.compiler.jvmTarget>
+        <kotest.version>4.4.0.RC1</kotest.version>
+        <kotlin.compiler.jvmTarget>${jdk.version}</kotlin.compiler.jvmTarget>
         <kotlin.version>1.4.10</kotlin.version>
         <ktlint-maven-plugin.version>1.6.1</ktlint-maven-plugin.version>
         <lombok.version>1.18.16</lombok.version>
@@ -52,9 +52,8 @@
         <maven-testing-plugins.version>3.0.0-M5</maven-testing-plugins.version>
         <maven-versions-plugin.version>2.8.1</maven-versions-plugin.version>
         <maven.compiler.parameters>true</maven.compiler.parameters>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
-        <mockito.version>3.7.0</mockito.version>
+        <maven.compiler.source>${jdk.version}</maven.compiler.source>
+        <maven.compiler.target>${jdk.version}</maven.compiler.target>
         <pitest-junit5-plugin.version>0.12</pitest-junit5-plugin.version>
         <pitest-maven.version>1.5.2</pitest-maven.version>
         <pmd.version>6.28.0</pmd.version>
@@ -103,15 +102,15 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-            <version>${assertj.version}</version>
+            <groupId>io.kotest</groupId>
+            <artifactId>kotest-runner-junit5-jvm</artifactId>
+            <version>${kotest.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-inline</artifactId>
-            <version>${mockito.version}</version>
+            <groupId>io.kotest</groupId>
+            <artifactId>kotest-assertions-core-jvm</artifactId>
+            <version>${kotest.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -171,8 +170,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <source>${java.version}</source>
-                    <release>${java.version}</release>
+                    <source>${jdk.version}</source>
+                    <release>${jdk.version}</release>
                 </configuration>
             </plugin>
             <plugin>
